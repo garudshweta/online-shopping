@@ -30,7 +30,6 @@ p {
 
 .header {
     background: linear-gradient(135deg, #ffe4f7, #d0bfff);
-    background-image: url('https://i.imgur.com/q5pK6B2.png'); /* Cute anime background */
     background-size: cover;
     background-position: center;
 }
@@ -251,7 +250,6 @@ h4 {
 .footer::after {
     content: "";
     position: absolute;
-    background: url('https://i.imgur.com/GIbZ8kX.png');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.1;
