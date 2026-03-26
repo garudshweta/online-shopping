@@ -1,0 +1,315 @@
+/* Anime Store Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', 'Poppins', 'Cherry Bomb One', cursive, sans-serif;
+    background: linear-gradient(180deg, #fceaff 0%, #e0d4ff 100%);
+    color: #333;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-repeat: repeat;
+}
+
+a {
+    text-decoration: none;
+    color: #7c3aed;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #f43f5e;
+    text-shadow: 0 0 5px #ff4ecd;
+}
+
+p {
+    color: #555;
+}
+
+.header {
+    background: linear-gradient(135deg, #ffe4f7, #d0bfff);
+    background-image: url('https://i.imgur.com/q5pK6B2.png'); /* Cute anime background */
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.menu-icon {
+    display: none;
+    width: 30px;
+    margin-left: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.header .row {
+    margin-top: 70px;
+}
+
+.col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 img {
+    max-width: 100%;
+    padding: 40px 0;
+}
+
+.col-2 h1 {
+    font-size: 50px;
+    color: #ff4ecd;
+    text-shadow: 2px 2px #d0bfff;
+}
+
+.btn {
+    display: inline-block;
+    background: #7c3aed;
+    color: #fff;
+    padding: 12px 30px;
+    margin: 30px 0;
+    border-radius: 50px;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #f43f5e;
+    transform: scale(1.05);
+}
+
+/* Categories Section */
+.categories {
+    margin: 70px 0;
+}
+
+.small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 20px;
+}
+
+.col-3 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.col-3 img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.5s;
+    box-shadow: 0 0 15px #ff8ce2;
+}
+
+.col-3:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* Titles */
+.title {
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #7c3aed;
+    font-size: 36px;
+    text-shadow: 1px 1px #d0bfff;
+}
+
+.title::after {
+    content: '';
+    background: #f43f5e;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Products Section */
+.col-4 {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.col-4 img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: 0 0 10px #ff99cc;
+}
+
+h4 {
+    color: #7c3aed;
+    font-weight: bold;
+}
+
+.col-4 p {
+    font-size: 14px;
+}
+
+.rating .fa {
+    color: #ff4ecd;
+}
+
+.col-4:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+/* Offer Section */
+.offer {
+    background: linear-gradient(135deg, #ffe4f7, #d0bfff);
+    margin-top: 80px;
+    padding: 30px 0;
+    border-radius: 15px;
+}
+
+/* Testimonial Section */
+.testimonial {
+    padding-top: 100px;
+}
+
+.testimonial .col-3 {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffe4f7;
+    box-shadow: 0 0 20px #ffd6ff;
+    border-radius: 15px;
+}
+
+/* Brands Section */
+.brands {
+    margin: 100px auto;
+    text-align: center;
+}
+
+.col-5 img {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.col-5 img:hover {
+    filter: grayscale(0);
+}
+
+/* Footer */
+.footer {
+    background: #7c3aed;
+    color: #fff;
+    font-size: 14px;
+    padding: 60px 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::after {
+    content: "";
+    position: absolute;
+    background: url('https://i.imgur.com/GIbZ8kX.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Responsive */
+@media only screen and (max-width: 800px) {
+    nav ul {
+        background: #7c3aed;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        text-align: center;
+    }
+
+    .col-1, .col-2, .col-3, .col-4 {
+        flex-basis: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

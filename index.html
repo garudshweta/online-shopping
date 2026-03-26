@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index - RedStore | Ecommerce Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .form-container { width: 300px; height: 420px; position: relative; text-align: center; padding: 20px 0; margin: auto; box-shadow: 0 0 20px 0px rgba(0,0,0,0.1); overflow: hidden; }
+        .form-btn { display: inline-block; margin: 0 auto; }
+        .form-btn span { font-weight: bold; padding: 0 10px; color: #555; cursor: pointer; width: 100px; display: inline-block; }
+        #indicator { width: 100px; border: none; background: #ff523b; height: 3px; margin-top: 8px; transition: transform 0.3s; }
+        .form-container form { max-width: 300px; padding: 0 20px; position: absolute; top: 100px; width: 100%; transition: transform 0.5s; }
+        form input { width: 100%; height: 30px; margin: 10px 0; padding: 0 10px; border: 1px solid #ccc; }
+        .btn { width: 100%; border: none; cursor: pointer; margin: 10px 0; background: #ff523b; color: #fff; padding: 8px 0; border-radius: 30px; }
+        #RegForm { left: 300px; }
+        #LoginForm { left: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
+            <img src="menu.png" onclick="menutoggle()" class="menu-icon">
+        </div>
+    </div>
+
+    <div class="accout-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="image1.png" width="100%">
+                </div>
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="indicator">
+                        </div>
+
+                        <form id="LoginForm">
+                            <input type="email" id="loginEmail" placeholder="Email" required>
+                            <input type="password" id="loginPass" placeholder="Password" required>
+                            <button type="submit" class="btn">Login</button>
+                            <a href="">Forgot password</a>
+                        </form>
+
+                        <form id="RegForm">
+                            <input type="text" id="regName" placeholder="Username" required>
+                            <input type="email" id="regEmail" placeholder="Email" required>
+                            <input type="password" id="regPass" placeholder="Password" required>
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col1">
+               <h3>Download Our App</h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="app-logo">
+                    <img src="play-store.png">
+                    <img src="app-store.png">
+                </div>
+            </div>
+            <div class="footer-col2">
+               <img src="logo-white.png">
+                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+            </div>
+            <div class="footer-col3">
+               <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col4">
+               <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter<li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright"><a href="https://www.youtube.com/c/EasyTutorialsVideo?sub_confirmation=1">Copyright 2026 - Easy Tutorials</a></p>
+    </div>
+    
+</div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA283udAqgan49tbXS_vuQvFlxF178SPnE",
+            authDomain: "shotaa-d557b.firebaseapp.com",
+            projectId: "shotaa-d557b",
+            storageBucket: "shotaa-d557b.firebasestorage.app",
+            messagingSenderId: "649564099149",
+            appId: "1:649564099149:web:83c17bc53ff8d5b1c20204",
+            measurementId: "G-F9QECP6LKQ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // --- Registration Logic ---
+        document.getElementById("RegForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("regName").value;
+            const email = document.getElementById("regEmail").value;
+            const pass = document.getElementById("regPass").value;
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+                const user = userCredential.user;
+
+                await setDoc(doc(db, "users", user.uid), {
+                    uid: user.uid,
+                    username: name,
+                    email: email,
+                    role: "user",
+                    createdAt: serverTimestamp()
+                });
+
+                alert("Registration Successful!");
+                window.location.href = "home.html";
+            } catch (error) {
+                alert("Error: " + error.message);
+            }
+        });
+
+        // --- Login Logic ---
+        document.getElementById("LoginForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("loginEmail").value;
+            const pass = document.getElementById("loginPass").value;
+
+            signInWithEmailAndPassword(auth, email, pass)
+                .then(() => {
+                    alert("Login Successful!");
+                    window.location.href = "home.html";
+                })
+                .catch((error) => {
+                    alert("Login Failed: " + error.message);
+                });
+        });
+    </script>
+
+    <script>
+        // UI Scripts
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indicator = document.getElementById("indicator");
+
+        function register(){
+            RegForm.style.transform = "translateX(-300px)";
+            LoginForm.style.transform = "translateX(-300px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+
+        function login(){
+            RegForm.style.transform = "translateX(0px)";
+            LoginForm.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if(MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+</body>
+</html>
